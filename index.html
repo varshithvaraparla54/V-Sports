@@ -1,0 +1,849 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="description" content="V² Sports – Shop Cricket, Football, Gym, Badminton equipment online at best prices in India."/>
+<title>V² Sports – All Sports Items in One Place</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="combined.css" rel="stylesheet"/>
+</head>
+<body>
+<!-- ============================================================
+     SHARED HEADER (always visible)
+     ============================================================ -->
+<header>
+<div class="logo-section">
+<img alt="V2 Sports Logo" class="logo-img" src="images/title.png"/>
+<h2>V<sup>2</sup>Sports</h2>
+</div>
+<div style="display:flex;align-items:center;gap:12px;">
+  <span style="color:#ffd740;font-weight:700;font-size:14px;">👤 Guest demo</span>
+  
+</div>
+<div class="search-box" id="globalSearch" style="display:none;">
+<input id="searchInput" placeholder="Search sports items..." type="text"/>
+<button>🔍</button>
+</div>
+<nav class="nav-links">
+<a href="#" onclick="showPage('home');return false;">🏠︎ Home</a>
+<a href="#" onclick="showPage('cart');return false;">Cart 🛒 (<span id="cartCount">0</span>)</a>
+<a href="#" onclick="showPage('categories');return false;">☰ Categories</a>
+<a href="#" onclick="showPage('contact');return false;">☏ Contact</a>
+</nav>
+</header>
+<!-- ============================================================
+     PAGE: HOME
+     ============================================================ -->
+<div class="page" id="page-home">
+<section class="hero">
+<h1 >All Sports Items in One Place</h1>
+<p>Shop for Cricket, Football, Gym &amp; More</p>
+</section>
+<div id="results"></div>
+<section class="categories">
+<h2>Categories</h2>
+<div class="category-box">
+<div class="cat" onclick="showPage('cricket')">🏏<br/>Cricket</div>
+<div class="cat" onclick="showPage('football')">⚽<br/>Football</div>
+<div class="cat" onclick="showPage('gym')">🏋️<br/>Gym</div>
+<div class="cat" onclick="showPage('batmention')">🏸 Badminton</div>
+</div>
+</section>
+<section class="offers" onclick="showPage('bestoffers')" style="cursor:pointer;">
+<div class="offer-box">
+<div class="offer-card">Best Offers 🔥</div>
+</div>
+</section>
+<section class="products">
+<h2>Popular Products</h2>
+<div id="homeProducts">
+<div class="product-container">
+<div class="product-card">
+<img alt="Cricket Bat" src="images/cricketbat.jpeg"/>
+<h3>Cricket Bat</h3>
+<p>₹1500</p>
+<button class="cart" onclick="addToCart('Cricket Bat', 1500, 'images/cricketbat.jpeg')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Cricket Bat', 1500, 'images/cricketbat.jpeg')">Buy Now</button>
+</div>
+<div class="product-card">
+<img alt="Football" src="images/football.jpeg"/>
+<h3>Football</h3>
+<p>₹800</p>
+<button class="cart" onclick="addToCart('Football', 800, 'images/football.jpeg')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Football', 800, 'images/football.jpeg')">Buy Now</button>
+</div>
+<div class="product-card">
+<img alt="Dumbbells" src="images/dumbells.jpeg"/>
+<h3>Dumbbells</h3>
+<p>₹1200</p>
+<button class="cart" onclick="addToCart('Dumbbells', 1200, 'images/dumbells.jpeg')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Dumbbells', 1200, 'images/dumbells.jpeg')">Buy Now</button>
+</div>
+<div class="product-card">
+<img alt="Badminton Racket" src="images/batmentionracket.jpeg"/>
+<h3>Badminton Racket</h3>
+<p>₹900</p>
+<button class="cart" onclick="addToCart('Badminton Racket', 900, 'images/batmentionracket.jpeg')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Badminton Racket', 900, 'images/batmentionracket.jpeg')">Buy Now</button>
+</div>
+</div>
+</div>
+</section>
+<section class="products">
+<h2>Best Sellers</h2>
+<div class="product-container">
+<div class="product-card">
+<img alt="Running Shoes" src="images/runningshoes.png"/>
+<h3>Running Shoes</h3>
+<p>₹2000</p>
+<button class="cart" onclick="event.stopPropagation();addToCart('Running Shoes', 2000, 'images/runningshoes.png')">Add to Cart</button>
+<button class="buy" onclick="event.stopPropagation();buyNow('Running Shoes', 2000, 'images/runningshoes.png')">Buy Now</button>
+</div>
+<div class="product-card">
+<img alt="Cricket Ball" src="images/cricketball.jpeg"/>
+<h3>Cricket Ball</h3>
+<p>₹500</p>
+<button class="cart" onclick="event.stopPropagation();addToCart('Cricket Ball', 500, 'images/cricketball.jpeg')">Add to Cart</button>
+<button class="buy" onclick="event.stopPropagation();buyNow('Cricket Ball', 500, 'images/cricketball.jpeg')">Buy Now</button>
+</div>
+<div class="product-card">
+<img alt="Football Shoes" src="images/footballshoes.png"/>
+<h3>Football Shoes</h3>
+<p>₹1800</p>
+<button class="cart" onclick="event.stopPropagation();addToCart('Football Shoes', 1800, 'images/footballshoes.png')">Add to Cart</button>
+<button class="buy" onclick="event.stopPropagation();buyNow('Football Shoes', 1800, 'images/footballshoes.png')">Buy Now</button>
+</div>
+</div>
+</section>
+<section class="products">
+<h2>Featured Products</h2>
+<div class="product-container">
+<div class="product-card">
+<img alt="Yoga Mat" src="images/yogamat.png"/>
+<h3>Yoga Mat</h3>
+<p>₹700</p>
+<button class="cart" onclick="event.stopPropagation();addToCart('Yoga Mat', 700, 'images/yogamat.png')">Add to Cart</button>
+<button class="buy" onclick="event.stopPropagation();buyNow('Yoga Mat', 700, 'images/yogamat.png')">Buy Now</button>
+</div>
+<div class="product-card">
+<img alt="Skipping Rope" src="images/skippingrope.png"/>
+<h3>Skipping Rope</h3>
+<p>₹300</p>
+<button class="cart" onclick="event.stopPropagation();addToCart('Skipping Rope', 300, 'images/skippingrope.png')">Add to Cart</button>
+<button class="buy" onclick="event.stopPropagation();buyNow('Skipping Rope', 300, 'images/skippingrope.png')">Buy Now</button>
+</div>
+<div class="product-card">
+<img alt="Basketball" src="images/basketball.png"/>
+<h3>Basketball</h3>
+<p>₹900</p>
+<button class="cart" onclick="event.stopPropagation();addToCart('Basketball', 900, 'images/basketball.png')">Add to Cart</button>
+<button class="buy" onclick="event.stopPropagation();buyNow('Basketball', 900, 'images/basketball.png')">Buy Now</button>
+</div>
+</div>
+</section>
+<footer><p>© 2026 SportsHub | All Rights Reserved</p></footer>
+</div>
+<!-- ============================================================
+     PAGE: CART
+     ============================================================ -->
+<div class="page" id="page-cart" style="display:none;">
+<h1 class="detail">Your Cart 🛒</h1>
+<div id="cartItems"></div>
+<h3 id="total"></h3>
+<div class="cart-actions">
+<button class="clear-btn" onclick="clearCart()">Clear Cart</button>
+<button class="buy" onclick="buyNow()">Buy Now</button>
+</div>
+<footer><p>© 2026 SportsHub | All Rights Reserved</p></footer>
+</div>
+<!-- ============================================================
+     PAGE: CATEGORIES
+     ============================================================ -->
+<div class="page" id="page-categories" style="display:none;">
+<h1 class="detail">Sports Categories</h1>
+<section class="categories-section">
+<a href="#" onclick="showPage('cricket')">
+<div class="card">
+<img alt="Cricket" class="image" src="images/cricketkit.jpg"/>
+<h2>Cricket</h2>
+<p>Bats, Balls, Kits &amp; More</p>
+</div>
+</a>
+<a href="#" onclick="showPage('batmention')">
+<div class="card">
+<img alt="Badminton" class="image" src="images/batmentionkit.jpg"/>
+<h2>Badminton</h2>
+<p>Rackets, Shuttle &amp; Nets</p>
+</div>
+</a>
+<a href="#" onclick="showPage('football')">
+<div class="card">
+<img alt="Football" class="image" src="images/footballkit.jpg"/>
+<h2>Football</h2>
+<p>Balls, Shoes &amp; Accessories</p>
+</div>
+</a>
+<a href="#" onclick="showPage('gym')">
+<div class="card">
+<img alt="Gym" class="image" src="images/gymkit.jpg"/>
+<h2>Gym</h2>
+<p>Dumbbells, Weights &amp; Equipment</p>
+</div>
+</a>
+</section>
+<footer><p>© 2026 SportsHub | All Rights Reserved</p></footer>
+</div>
+<!-- ============================================================
+     PAGE: CONTACT
+     ============================================================ -->
+<div class="page" id="page-contact" style="display:none;">
+<h1 class="detail">Contact V² Sports</h1>
+<section class="contact-container">
+<div class="contact-info">
+<h2>Get in Touch</h2>
+<p><strong>📍 Address:</strong> Hyderabad, India</p>
+<p><strong>📞 Phone 1:</strong> +91 6301625846</p>
+<p><strong>📞 Phone 2:</strong> +91 7032128845</p>
+<p><strong>📧 Email:</strong> V<sup>2</sup>sports@gmail.com</p>
+<p><strong>⏰ Working Hours:</strong> 9 AM - 9 PM</p>
+</div>
+<div class="contact-form"><h2>Contact</h2><p>This public demo does not send messages. Contact form is disabled.</p></div>
+</section>
+<footer><p>© 2026 SportsHub | All Rights Reserved</p></footer>
+</div>
+<!-- ============================================================
+     PAGE: CRICKET
+     ============================================================ -->
+<div class="page" id="page-cricket" style="display:none;">
+<h1>Cricket Equipments 🏏</h1>
+<div class="container">
+<div class="item">
+<img alt="Cricket Bat" src="images/cricketbat.jpeg"/>
+<div class="details">
+<h2>Cricket Bat</h2>
+<p class="price"><span class="old-price">₹1500</span><span class="new-price">₹1050</span><span class="discount">30% OFF</span></p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Cricket Bat', 1500, 'images/cricketbat.jpeg')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Cricket Bat', 1050, 'images/cricketbat.jpeg')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Cricket Ball" src="images/cricketball.jpeg"/>
+<div class="details">
+<h2>Cricket Ball</h2>
+<p>₹500</p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Cricket Ball', 500, 'images/cricketball.jpeg')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Cricket Ball', 500, 'images/cricketball.jpeg')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Batting Gloves" src="images/batinggloves.png"/>
+<div class="details">
+<h2>Batting Gloves</h2>
+<p>₹819</p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Batting Gloves', 819, 'images/batinggloves.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Batting Gloves', 819, 'images/batinggloves.png')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Pads" src="images/pads.png"/>
+<div class="details">
+<h2>Pads</h2>
+<p class="price"><span class="old-price">₹979</span><span class="new-price">₹738</span><span class="discount">20% OFF</span></p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Pads', 738, 'images/pads.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Pads', 738, 'images/pads.png')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Helmet" src="images/helmet.png"/>
+<div class="details">
+<h2>Helmet</h2>
+<p>₹699</p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Helmet', 699, 'images/helmet.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Helmet', 699, 'images/helmet.png')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Thigh Guard" src="images/thighgaurd.png"/>
+<div class="details">
+<h2>Thigh Guard</h2>
+<p>₹490</p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Thigh Guard', 490, 'images/thighgaurd.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Thigh Guard', 490, 'images/thighgaurd.png')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Arm Guard" src="images/armgaurd.png"/>
+<div class="details">
+<h2>Arm Guard</h2>
+<p>₹490</p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Arm Guard', 490, 'images/armgaurd.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Arm Guard', 490, 'images/armgaurd.png')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Abdominal Guard" src="images/abdominalgaurd.png"/>
+<div class="details">
+<h2>Abdominal Guard</h2>
+<p>₹300</p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Abdominal Guard', 300, 'images/abdominalgaurd.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Abdominal Guard', 300, 'images/abdominalgaurd.png')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Cricket Kit Bag" src="images/cricketkitbag.png"/>
+<div class="details">
+<h2>Cricket Kit Bag</h2>
+<p>₹800</p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Cricket Kit Bag', 800, 'images/cricketkitbag.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Cricket Kit Bag', 800, 'images/cricketkitbag.png')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Wicket Keeping Gloves" src="images/wicketkeepinggloves.png"/>
+<div class="details">
+<h2>Wicket Keeping Gloves</h2>
+<p>₹500</p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Wicket Keeping Gloves', 500, 'images/wicketkeepinggloves.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Wicket Keeping Gloves', 500, 'images/wicketkeepinggloves.png')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Wicket Keeping Pads" src="images/wicketkeepingpads.png"/>
+<div class="details">
+<h2>Wicket Keeping Pads</h2>
+<p>₹490</p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Wicket Keeping Pads', 490, 'images/wicketkeepingpads.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Wicket Keeping Pads', 490, 'images/wicketkeepingpads.png')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Cricket Jersey" src="images/cricketjersy.png"/>
+<div class="details">
+<h2>Cricket Jersey</h2>
+<p class="price"><span class="old-price">₹800</span><span class="new-price">₹600</span><span class="discount">25% OFF</span></p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Cricket Jersey', 600, 'images/cricketjersy.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Cricket Jersey', 600, 'images/cricketjersy.png')">Buy Now</button>
+</div>
+</div>
+</div>
+</div>
+<footer><p>© 2026 SportsHub | All Rights Reserved</p></footer>
+</div>
+<!-- ============================================================
+     PAGE: BADMINTON
+     ============================================================ -->
+<div class="page" id="page-batmention" style="display:none;">
+<h1>Badminton Equipments 🎾</h1>
+<div class="container">
+<div class="item">
+<img alt="Badminton Racket" src="images/batmentionracket.jpeg"/>
+<div class="details">
+<h2>Badminton Racket</h2>
+<p>₹900</p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Badminton Racket', 900, 'images/batmentionracket.jpeg')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Badminton Racket', 900, 'images/batmentionracket.jpeg')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Shuttlecocks" src="images/shuttlecocks.png"/>
+<div class="details">
+<h2>Shuttlecocks</h2>
+<p>₹300</p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Shuttlecocks', 300, 'images/shuttlecocks.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Shuttlecocks', 300, 'images/shuttlecocks.png')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Badminton Net" src="images/shuttlenet.png"/>
+<div class="details">
+<h2>Badminton Net</h2>
+<p>₹700</p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Badminton Net', 700, 'images/shuttlenet.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Badminton Net', 700, 'images/shuttlenet.png')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Badminton Shoes" src="images/badmentionshoes.png"/>
+<div class="details">
+<h2>Badminton Shoes</h2>
+<p class="price"><span class="old-price">₹2000</span><span class="new-price">₹1500</span><span class="discount">25% OFF</span></p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Badminton Shoes', 1500, 'images/badmentionshoes.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Badminton Shoes', 1500, 'images/badmentionshoes.png')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Racket Grip" src="images/racketgrip.png"/>
+<div class="details">
+<h2>Racket Grip</h2>
+<p>₹250</p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Racket Grip', 250, 'images/racketgrip.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Racket Grip', 250, 'images/racketgrip.png')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Racket String" src="images/racketstring.png"/>
+<div class="details">
+<h2>Racket String</h2>
+<p>₹375</p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Racket String', 375, 'images/racketstring.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Racket String', 375, 'images/racketstring.png')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Kit Bag" src="images/badmentionkitbag.png"/>
+<div class="details">
+<h2>Kit Bag</h2>
+<p>₹900</p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Kit Bag', 900, 'images/badmentionkitbag.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Kit Bag', 900, 'images/badmentionkitbag.png')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Wrist Band" src="images/wristband.png"/>
+<div class="details">
+<h2>Wrist Band</h2>
+<p>₹99</p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Wrist Band', 99, 'images/wristband.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Wrist Band', 99, 'images/wristband.png')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Head Band" src="images/headband.png"/>
+<div class="details">
+<h2>Head Band</h2>
+<p>₹99</p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Head Band', 99, 'images/headband.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Head Band', 99, 'images/headband.png')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Training Kit" src="images/trainingkit.png"/>
+<div class="details">
+<h2>Training Kit</h2>
+<p class="price"><span class="old-price">₹2999</span><span class="new-price">₹1200</span><span class="discount">60% OFF</span></p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Training Kit', 1200, 'images/trainingkit.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Training Kit', 1200, 'images/trainingkit.png')">Buy Now</button>
+</div>
+</div>
+</div>
+</div>
+<footer><p>© 2026 SportsHub | All Rights Reserved</p></footer>
+</div>
+<!-- ============================================================
+     PAGE: FOOTBALL
+     ============================================================ -->
+<div class="page" id="page-football" style="display:none;">
+<h1>Football Equipments ⚽</h1>
+<div class="container">
+<div class="item">
+<img alt="Football" src="images/football.jpeg"/>
+<div class="details">
+<h2>Football</h2>
+<p>₹800</p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Football', 800, 'images/football.jpeg')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Football', 800, 'images/football.jpeg')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Football Shoes" src="images/footballshoes.png"/>
+<div class="details">
+<h2>Football Shoes</h2>
+<p class="price"><span class="old-price">₹1800</span><span class="new-price">₹1440</span><span class="discount">20% OFF</span></p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Football Shoes', 1440, 'images/footballshoes.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Football Shoes', 1440, 'images/footballshoes.png')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Shin Guards" src="images/shinguards.png"/>
+<div class="details">
+<h2>Shin Guards</h2>
+<p>₹650</p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Shin Guards', 650, 'images/shinguards.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Shin Guards', 650, 'images/shinguards.png')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Goalkeeper Gloves" src="images/goalkeepergloves.png"/>
+<div class="details">
+<h2>Goalkeeper Gloves</h2>
+<p>₹720</p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Goalkeeper Gloves', 720, 'images/goalkeepergloves.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Goalkeeper Gloves', 720, 'images/goalkeepergloves.png')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Football Jersey" src="images/footballjersy.png"/>
+<div class="details">
+<h2>Football Jersey</h2>
+<p>₹990</p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Football Jersey', 990, 'images/footballjersy.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Football Jersey', 990, 'images/footballjersy.png')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Goal Net" src="images/goalnet.png"/>
+<div class="details">
+<h2>Goal Net</h2>
+<p class="price"><span class="old-price">₹1225</span><span class="new-price">₹795</span><span class="discount">35% OFF</span></p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Goal Net', 795, 'images/goalnet.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Goal Net', 795, 'images/goalnet.png')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Ball Pump" src="images/ballpump.png"/>
+<div class="details">
+<h2>Ball Pump</h2>
+<p>₹270</p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Ball Pump', 270, 'images/ballpump.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Ball Pump', 270, 'images/ballpump.png')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Training Cones" src="images/trainingcones.png"/>
+<div class="details">
+<h2>Training Cones</h2>
+<p>₹200</p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Training Cones', 200, 'images/trainingcones.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Training Cones', 200, 'images/trainingcones.png')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Captain Armband" src="images/captainarmband.png"/>
+<div class="details">
+<h2>Captain Armband</h2>
+<p>₹120</p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Captain Armband', 120, 'images/captainarmband.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Captain Armband', 120, 'images/captainarmband.png')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Football Socks" src="images/footballsocks.png"/>
+<div class="details">
+<h2>Football Socks</h2>
+<p>₹54</p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Football Socks', 54, 'images/footballsocks.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Football Socks', 54, 'images/footballsocks.png')">Buy Now</button>
+</div>
+</div>
+</div>
+</div>
+<footer><p>© 2026 SportsHub | All Rights Reserved</p></footer>
+</div>
+<!-- ============================================================
+     PAGE: GYM
+     ============================================================ -->
+<div class="page" id="page-gym" style="display:none;">
+<h1>Gym Equipments 🏋</h1>
+<div class="container">
+<div class="item">
+<img alt="Dumbbells" src="images/dumbells.jpeg"/>
+<div class="details">
+<h2>Dumbbells</h2>
+<p>₹1200</p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Dumbbells', 1200, 'images/dumbells.jpeg')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Dumbbells', 1200, 'images/dumbells.jpeg')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Barbell" src="images/barbell.png"/>
+<div class="details">
+<h2>Barbell</h2>
+<p>₹1250</p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Barbell', 1250, 'images/barbell.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Barbell', 1250, 'images/barbell.png')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Treadmill" src="images/treadmill.png"/>
+<div class="details">
+<h2>Treadmill</h2>
+<p>₹6200</p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Treadmill', 6200, 'images/treadmill.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Treadmill', 6200, 'images/treadmill.png')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Exercise Bike" src="images/exercisebike.png"/>
+<div class="details">
+<h2>Exercise Bike</h2>
+<p class="price"><span class="old-price">₹3700</span><span class="new-price">₹2590</span><span class="discount">30% OFF</span></p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Exercise Bike', 2590, 'images/exercisebike.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Exercise Bike', 2590, 'images/exercisebike.png')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Kettlebell" src="images/kettlebell.png"/>
+<div class="details">
+<h2>Kettlebell</h2>
+<p>₹600</p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Kettlebell', 600, 'images/kettlebell.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Kettlebell', 600, 'images/kettlebell.png')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Skipping Rope" src="images/skippingrope.png"/>
+<div class="details">
+<h2>Skipping Rope</h2>
+<p>₹300</p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Skipping Rope', 300, 'images/skippingrope.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Skipping Rope', 300, 'images/skippingrope.png')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Yoga Mat" src="images/yogamat.png"/>
+<div class="details">
+<h2>Yoga Mat</h2>
+<p>₹700</p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Yoga Mat', 700, 'images/yogamat.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Yoga Mat', 700, 'images/yogamat.png')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Resistance Bands" src="images/resistancebands.png"/>
+<div class="details">
+<h2>Resistance Bands</h2>
+<p>₹300</p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Resistance Bands', 300, 'images/resistancebands.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Resistance Bands', 300, 'images/resistancebands.png')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Workout Bench" src="images/workoutbench.png"/>
+<div class="details">
+<h2>Workout Bench</h2>
+<p class="price"><span class="old-price">₹1200</span><span class="new-price">₹600</span><span class="discount">50% OFF</span></p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Workout Bench', 600, 'images/workoutbench.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Workout Bench', 600, 'images/workoutbench.png')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Pull-Up Bar" src="images/pullupbar.png"/>
+<div class="details">
+<h2>Pull-Up Bar</h2>
+<p>₹800</p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Pull-Up Bar', 800, 'images/pullupbar.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Pull-Up Bar', 800, 'images/pullupbar.png')">Buy Now</button>
+</div>
+</div>
+</div>
+</div>
+<footer><p>© 2026 SportsHub | All Rights Reserved</p></footer>
+</div>
+<!-- ============================================================
+     PAGE: BEST OFFERS
+     ============================================================ -->
+<div class="page" id="page-bestoffers" style="display:none;">
+<h1>Best Offers 🔥</h1>
+<div class="container">
+<div class="item">
+<img alt="Badminton Shoes" src="images/badmentionshoes.png"/>
+<div class="details">
+<h2>Badminton Shoes</h2>
+<p class="price"><span class="old-price">₹2000</span><span class="new-price">₹1500</span><span class="discount">25% OFF</span></p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Badminton Shoes', 1500, 'images/badmentionshoes.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Badminton Shoes', 1500, 'images/badmentionshoes.png')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Training Kit" src="images/trainingkit.png"/>
+<div class="details">
+<h2>Training Kit</h2>
+<p class="price"><span class="old-price">₹2999</span><span class="new-price">₹1200</span><span class="discount">60% OFF</span></p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Training Kit', 1200, 'images/trainingkit.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Training Kit', 1200, 'images/trainingkit.png')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Cricket Jersey" src="images/cricketjersy.png"/>
+<div class="details">
+<h2>Cricket Jersey</h2>
+<p class="price"><span class="old-price">₹800</span><span class="new-price">₹600</span><span class="discount">25% OFF</span></p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Cricket Jersey', 600, 'images/cricketjersy.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Cricket Jersey', 600, 'images/cricketjersy.png')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Pads" src="images/pads.png"/>
+<div class="details">
+<h2>Pads</h2>
+<p class="price"><span class="old-price">₹979</span><span class="new-price">₹738</span><span class="discount">20% OFF</span></p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Pads', 738, 'images/pads.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Pads', 738, 'images/pads.png')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Goal Net" src="images/goalnet.png"/>
+<div class="details">
+<h2>Goal Net</h2>
+<p class="price"><span class="old-price">₹1225</span><span class="new-price">₹795</span><span class="discount">35% OFF</span></p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Goal Net', 795, 'images/goalnet.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Goal Net', 795, 'images/goalnet.png')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Football Shoes" src="images/footballshoes.png"/>
+<div class="details">
+<h2>Football Shoes</h2>
+<p class="price"><span class="old-price">₹1800</span><span class="new-price">₹1440</span><span class="discount">20% OFF</span></p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Football Shoes', 1440, 'images/footballshoes.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Football Shoes', 1440, 'images/footballshoes.png')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Exercise Bike" src="images/exercisebike.png"/>
+<div class="details">
+<h2>Exercise Bike</h2>
+<p class="price"><span class="old-price">₹3700</span><span class="new-price">₹2590</span><span class="discount">30% OFF</span></p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Exercise Bike', 2590, 'images/exercisebike.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Exercise Bike', 2590, 'images/exercisebike.png')">Buy Now</button>
+</div>
+</div>
+</div>
+<div class="item">
+<img alt="Workout Bench" src="images/workoutbench.png"/>
+<div class="details">
+<h2>Workout Bench</h2>
+<p class="price"><span class="old-price">₹1200</span><span class="new-price">₹600</span><span class="discount">50% OFF</span></p>
+<div class="buttons">
+<button class="cart" onclick="addToCart('Workout Bench', 600, 'images/workoutbench.png')">Add to Cart</button>
+<button class="buy" onclick="buyNow('Workout Bench', 600, 'images/workoutbench.png')">Buy Now</button>
+</div>
+</div>
+</div>
+</div>
+<footer><p>© 2026 SportsHub | All Rights Reserved</p></footer>
+</div>
+
+<!-- PAGE: CHECKOUT -->
+<div id="page-checkout" class="page" style="display:none;">
+  <h1>Demo Checkout 🛒</h1>
+  <div style="display:flex;flex-wrap:wrap;gap:30px;padding:30px;justify-content:center;align-items:flex-start;">
+    <div style="background:#1a2a3a;padding:25px;border-radius:12px;width:min(100%,420px);">
+      <h2 style="margin-bottom:14px;color:white;">Static demo</h2>
+      <p style="color:#ccc;line-height:1.6;">This demo lets you preview the shopping flow. It does not collect delivery or payment details, place orders, or save anything to a store database.</p>
+      <button class="buy" style="margin-top:20px;padding:14px;font-size:16px;" onclick="placeCheckoutOrder()">Finish demo</button>
+      <button class="cart" style="margin-top:20px;padding:14px;font-size:16px;" onclick="showPage('cart')">Back to cart</button>
+    </div>
+    <div style="background:#1a2a3a;padding:25px;border-radius:12px;width:min(100%,360px);">
+      <h2 style="margin-bottom:20px;color:white;">🧾 Demo Summary</h2>
+      <div id="checkoutSummary"></div>
+      <p style="color:#aaa;font-size:13px;margin-top:15px;">Cart items are stored only in this browser.</p>
+    </div>
+  </div>
+  <footer><p>© 2026 V² Sports Demo</p></footer>
+</div>
+
+<!-- SHARED POPUPS --><!-- ============================================================
+     SHARED POPUPS (used across all pages)
+     ============================================================ -->
+<!-- Account features are omitted from this static demo. -->
+<div class="popup" id="demoPopup"><div class="popup-content"><h2>Demo only</h2><p>No order was placed or saved.</p><button class="submit" onclick="closeAll()">OK</button></div></div>
+<!-- Cart Toast -->
+<div class="toast" id="cartToast">✅ Item added to cart!</div>
+<!-- ============================================================
+     SCRIPT
+     ============================================================ -->
+<script src="combined.js"></script>
+<script>
+    // Show search by default on home
+    document.getElementById('globalSearch').style.display = 'flex';
+</script>
+</body>
+</html>
